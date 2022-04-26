@@ -2,5 +2,4 @@ baseURL = 'https://palinakg.github.io/SocialData2022'
 languageCode = 'en-us'
 title = 'My New Hugo Site'
 theme='hugo-scroll'
-isbokeh = true
 publishDir: "docs"
