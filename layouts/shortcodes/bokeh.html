@@ -1,0 +1,25 @@
+{{- with .Get 0 -}}
+  {{- $path := . -}}
+  {{- $id :=  anchorize . -}}
+  
+  {{- with $.Page.Parent.Resources.GetMatch $path -}}
+    {{- $json := .Content | safeJS -}}
+    
+    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-2.4.0.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.4.0.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.4.0.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-gl-2.4.0.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-mathjax-2.4.0.min.js" crossorigin="anonymous"></script>
+
+    <div id="{{$id}}">
+      <script>
+        var item = JSON.parse({{$json}});
+        Bokeh.embed.embed_item(item, {{$id}});
+      </script>
+    </div>
+  {{- else -}}
+    {{- errorf "The %s shortcode was unable to find %s. See %s" $.Name $path $.Position -}}
+  {{- end -}}
+{{- else -}}
+  {{- errorf "The %s shortcode requires a single positional parameter. See %s" $.Name $.Position -}}
+{{- end -}}

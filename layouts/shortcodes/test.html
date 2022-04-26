@@ -1,0 +1,8 @@
+{{- with .Get 0 -}}
+  {{- $path := . -}}
+  {{- $id :=  anchorize . -}}
+  {{ printf "Page parent: %s" $.Page.Parent.Resources }}
+  
+{{- else -}}
+  {{- errorf "The %s shortcode requires a single positional parameter. See %s" $.Name $.Position -}}
+{{- end -}}
