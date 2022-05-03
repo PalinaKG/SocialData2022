@@ -1,7 +1,7 @@
 ---
 header_image: "images/cover-image.jpg"
-header_headline: Jane Doe
-header_subheadline: "Hi there , I am a Nutrition Coach & Chef Consultant"
+header_headline: Air pollution in New York
+header_subheadline: ""
 
 ---
 
