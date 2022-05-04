@@ -1,7 +1,12 @@
 ---
-title: "Prediction"
+title: "Deaths caused by pollutants"
 weight: 5
 header_menu: true
 ---
-{{< bokeh "bokeh_plots/Predictions.json">}}
+
+
+
+
+{{< include-html "content/homepage/bokeh_plots/Deaths.html" >}}
+
 

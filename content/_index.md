@@ -5,5 +5,3 @@ header_subheadline: ""
 
 ---
 
-
-{{< test Predictions.json >}}

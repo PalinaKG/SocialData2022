@@ -480,6 +480,7 @@ ul li {
 #site-head:after {
 }
 
+
 /* Yo-logo. Yolo-go. Upload one in ghost/settings/ */
 #blog-logo img {
   display: block;
@@ -687,6 +688,7 @@ a.fn-item.active {
   max-width: 100%;
   margin: 0 auto;
 }
+
 
 /* The author credit area after the post */
 .post-footer {

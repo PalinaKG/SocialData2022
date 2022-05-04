@@ -1,6 +1,94 @@
 
 
-{{ $file := .Get 0 }}
+<!DOCTYPE html>
 
-{{ $file | readFile | safeHTML }}
+<html>
+    <head>
+        <style>
+                .image-site {
+                    width: 100px; 
+                /* float: right;  */
+                /* font-size: medium; */
+                }
 
+                
+
+                .flex_class {
+                    display :flex;
+                    flex-direction: row-reverse;
+                    justify-content: space-between;
+                    /* font-size: medium; */
+                    align-items: center;
+                    
+                }
+
+                
+                .flex_class .picture {
+                width: 600px;
+                margin-right: 30px;
+                margin-top: 40px;
+                margin-bottom: 40px;
+                 }
+
+                .flex_class .text {
+                max-width: 500px; 
+                min-width: 300px; 
+                text-align: justify;
+                /* float: right;  */
+                /* font-size: medium; */
+                }
+
+                @media only screen and (max-width: 1120px) {
+                    .flex_class {
+                        display:unset
+
+                    }
+                    .flex_class .text {
+                        max-width: unset;
+                        min-width: unset;
+                    }
+
+
+                }
+/*             
+            @media only screen  and (max-width: "1026px") {
+            #image-site {
+                float: top;
+                }
+            } */
+            
+        </style>
+    </head>
+    <!-- <link rel="stylesheet" href="{{ "../../docs/css/style_hmg.css" | absURL }}" /> -->
+        <!-- <link rel="stylesheet" href="../../docs/css/style_hmg.css"> -->
+        <httpProtocol>
+            <customHeaders>
+                <add name="Access-Control-Allow-Origin" value="*" />
+            </customHeaders>
+        </httpProtocol>
+    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-2.4.2.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.4.2.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.4.2.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-gl-2.4.2.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-mathjax-2.4.2.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-api-2.4.2.min.js"></script>
+
+
+    <body class="main">
+            {{ $text := .Get 1 }}
+            <div class="flex_class">
+                <div class="text">
+                    <p>{{$text}}</p>
+                </div>
+                <div class="picture">
+                    {{ $file := .Get 0 }}
+                    {{ $file | readFile | safeHTML }}
+                </div>
+
+            </div>
+        
+
+
+     
+    </body>
+</html>
